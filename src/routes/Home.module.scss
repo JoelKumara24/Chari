@@ -1,0 +1,681 @@
+@import '../styles/variables';
+@import '../styles/mixins';
+
+/* 1) Remove background image from .home */
+.home {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  color: $primary-color;
+
+  /* Ensure .hero sits above this container */
+  .hero {
+    position: relative;
+    z-index: 2;
+    background-color: #000; /* black fallback behind video */
+  }
+
+  /* All non-hero children sit above .home */
+  > *:not(.hero) {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+/* 2) Hero container */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;      /* full-screen */
+  overflow: hidden;   /* crop anything overflowing */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+/* 3) HERO VIDEO (no black bars) */
+.heroVideo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  /*
+    – Ensure the video is always at least as big as the hero in both directions
+    – Overflow gets clipped by .hero’s overflow:hidden
+  */
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  object-position: center;
+  opacity: 1;    /* no transparency so content remains clear */
+  z-index: 1;    /* above .hero’s black background, below .heroContent */
+}
+
+/* 4) Hero content (logo + headline) */
+.heroContent {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  padding: 2rem;
+}
+
+.logo {
+  width: 200px;
+  max-width: 80%;
+  margin-bottom: 0.5rem;   // reduced bottom margin to bring title closer
+}
+
+/* New: style for the SVG title */
+.titleSvg {
+  width: 450px;            // increased from 350px to 450px for a larger title
+  max-width: 95%;
+  height: auto;
+  display: block;
+  margin: 0 auto;          // center horizontally
+}
+
+/* 5) Base section styling—transparent so hero/video shows through */
+%base-section {
+  background: transparent;
+  padding: 3rem 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid rgba($primary-color, 0.1);
+  }
+
+  h2 {
+    @include section-heading;
+  }
+  p {
+    background: rgba($secondary-color, 0.3);
+    padding: 1rem;
+    border-radius: 4px;
+    margin: 1rem 0 0;
+  }
+}
+
+/* 6) Apply to each content section */
+
+
+
+
+/* 7) “What We Do” SECTION: Full-width background + clearer text + centered heading */
+.whatWeDo {
+  /* 1) Full-section background image */
+  background: url('../assets/whatWeDoBg.jpg') no-repeat center center;
+  background-size: cover;
+  position: relative;
+
+  /* 2) Increase section height with generous vertical padding */
+  padding: 8rem 1rem;    // 8rem top/bottom for more “canvas” height
+
+  /* 3) Add a subtle dark overlay so text remains legible */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.4);   // darken entire section slightly
+    z-index: 0;
+  }
+
+  /* 4) Ensure all direct content sits above the overlay */
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* 5) Center and style the heading */
+  > h2 {
+    color: #fff;                  // make heading white
+    font-size: 2.75rem;
+    text-align: center;           // center the heading
+    margin-bottom: 1.5rem;
+  }
+
+  /* 6) Style the subtitle paragraph (direct <p> under .whatWeDo) */
+  > p {
+    color: #fff;                  // white text for paragraph
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto 3rem;          // center horizontally and add bottom spacing
+    line-height: 1.6;
+    text-align: center;           // center the paragraph text
+  }
+
+  /* 7) Card grid (no changes other than ensuring it sits above overlay) */
+  .cardGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;              
+    margin: 0 auto 3rem;        // add spacing below cards
+    max-width: 1000px;          // constrain grid width
+    position: relative;         // ensure cards sit above overlay
+    z-index: 1;
+  }
+
+  /* 8) Individual card (unchanged, sits above overlay) */
+  .card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+    }
+
+    .cardImage {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .cardContent {
+      padding: 1.5rem;
+      color: #333;
+
+      .cardTitle {
+        font-size: 1.5rem;
+        margin: 0 0 0.75rem;
+        color: #111;
+      }
+
+      .cardDesc {
+        font-size: 1rem;
+        color: #555;
+        margin-bottom: 1.25rem;
+        line-height: 1.5;
+      }
+
+      .cardFooter {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.9rem;
+        color: #777;
+
+        span {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+        }
+      }
+    }
+  }
+
+  /* Remove display: block; and use inline‐block instead */
+  .cta {
+    position: relative;
+    z-index: 1;
+    display: inline‐block;        // inline‐block so it only wraps its content
+    margin: 2rem 0 0;             // top margin, no auto margins
+    background: $accent-color;
+    color: #fff;
+    font-weight: 600;
+    padding: 0.75rem 1.75rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    text-align: center;
+    transition: background 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+      background: darken($accent-color, 10%);
+      transform: translateY(-2px);
+    }
+  }
+
+  /* Ensure the parent centers inline‐block children */
+  text-align: center; // add this so the inline‐block .cta is centered
+
+}
+
+.places {
+  /* 1) Full‐section background image */
+  background: url('../assets/placesBg.jpg') no-repeat center center;
+  background-size: cover;
+  position: relative;
+
+  /* 2) Dark overlay for contrast */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 0;
+  }
+
+  /* 3) Make section a flex container with two columns */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;   /* center columns horizontally */
+  align-items: center;       /* vertically center both columns */
+  min-height: 100vh;         /* ← stretch to full viewport height */
+  padding: 0 1rem;           /* horizontal breathing room only */
+
+  /* 4) Ensure all child elements appear above the overlay */
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* -------------------------------
+     Left Column: Heading + Paragraph
+     ------------------------------- */
+  .placesText {
+    flex: 1 1 300px;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 1rem 0 2rem;
+
+    h2 {
+      color: #fff;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+
+    p {
+      color: #fff;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      text-align: left;
+      margin: 0;
+    }
+  }
+
+  /* -------------------------------
+     Right Column: Slideshow + CTA
+     ------------------------------- */
+  .placesMedia {
+    flex: 1 1 300px;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 2rem;      /* reduce from 12rem if it was pushing too far */
+
+    .slideshow {
+      position: relative;
+      width: 100%;
+      max-width: 500px;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .slide {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 8px;
+        background: rgba($secondary-color, 0.3);
+      }
+
+      .navButton {
+        @include center;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 2.5rem;
+        height: 2.5rem;
+        border: none;
+        border-radius: 50%;
+        font-size: 1.5rem;
+        background: rgba($secondary-color, 0.6);
+        color: $primary-color;
+        cursor: pointer;
+        transition: background 0.3s;
+
+        &:hover {
+          background: rgba($secondary-color, 0.9);
+        }
+      }
+
+      .prevButton { left: 0.5rem; }
+      .nextButton { right: 0.5rem; }
+    }
+
+    /* 5) Center the CTA below the slideshow */
+    .cta {
+      display: inline-block;
+      background: $accent-color;
+      color: #fff;
+      font-weight: 600;
+      padding: 0.75rem 1.75rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 1rem;
+      text-align: center;
+      transition: background 0.3s ease, transform 0.3s ease;
+
+      &:hover {
+        background: darken($accent-color, 10%);
+        transform: translateY(-2px);
+      }
+    }
+  }
+}
+
+
+
+/* 10) Getting Around with full‐section background */
+/* 10) Getting Around: Full‐width background + full‐viewport height + centered content */
+.gettingAround {
+  /* 1) Span the full viewport width and height */
+  width: 100%;
+  min-height: 100vh;       /* ← Ensures background covers entire screen height */
+  padding: 0 1rem;         /* Horizontal padding only; vertical centering handled by flex */
+
+  /* 2) Background image (edge‐to‐edge) + overlay */
+  background: url('../assets/gettingAroundBg.jpg') no-repeat center center;
+  background-size: cover;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 0;
+  }
+
+  /* 3) Center all content vertically and horizontally */
+  display: flex;
+  align-items: center;     /* vertical centering */
+  justify-content: center; /* horizontal centering */
+
+  /* 4) Ensure all direct children appear above the overlay */
+  > * {
+    position: relative;
+    z-index: 1;
+    width: 100%;            /* let the inner container fill available width */
+  }
+
+  /* 5) Constrain inner content to a centered “container” */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 0;        /* vertical padding to give breathing room */
+  }
+
+  /* 6) Section header (white text on dark overlay) */
+  .sectionHeader {
+    text-align: center;
+    margin-bottom: 2rem;
+
+    .badge {
+      display: inline-block;
+      background: $accent-color;
+      color: $secondary-color;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      margin-bottom: 0.5rem;
+    }
+
+    .title {
+      font-size: 2.5rem;           /* slightly larger for more presence */
+      margin: 0.5rem 0 1rem;
+      color: #fff;                 /* white heading */
+    }
+
+    .subtitle {
+      max-width: 700px;
+      margin: 0 auto;
+      color: rgba(255, 255, 255, 0.9);  /* slightly transparent white */
+      line-height: 1.5;
+      font-size: 1.1rem;
+    }
+  }
+
+  /* 7) Transport grid (cards sit above overlay) */
+  .transportGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .transportItem {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9);  /* opaque white card */
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+    .transportIcon {
+      @include center;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: $accent-color;
+      color: $secondary-color;
+      margin: 0 auto 1rem;
+      font-size: 2rem;
+    }
+
+    .transportTitle {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: #111;
+    }
+
+    .transportDescription {
+      font-size: 0.9rem;
+      color: #555;
+      margin: 0;
+    }
+  }
+
+  /* 8) Centered button below grid */
+  .centerButton {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+
+    .button {
+      display: inline-block;
+      background: $accent-color;
+      color: $secondary-color;
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background 0.3s ease, transform 0.3s ease;
+
+      &:hover {
+        background: darken($accent-color, 10%);
+        transform: translateY(-2px);
+      }
+    }
+  }
+}
+
+
+
+/* 11) Why Choose Us: Full-width background + enhanced styling */
+.whyUs {
+  /* 1) Full-section background image */
+  background: url('../assets/whyUsBg.jpg') no-repeat center center;
+  background-size: cover;
+  position: relative;
+
+  /* 2) Dark overlay for contrast */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 0;
+  }
+
+  /* 3) Ensure direct children appear above overlay */
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* 4) Vertical padding so section has breathing room */
+  padding: 6rem 1rem;
+
+  /* 🚀  Add this to make the section at least full‐viewport height  🚀 */
+  min-height: 80vh;
+
+  /* 5) Inner wrapper to constrain width and center content */
+  .whyUsContent {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  /* 6) Section heading */
+  h2 {
+    font-size: 2.75rem;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  /* 7) Introductory paragraph (if any) */
+  p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.6;
+    text-align: center;
+  }
+
+  /* 8) List of reasons */
+  ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    padding: 0;
+    margin: 0 0 2rem; /* add bottom spacing */
+    list-style: none;
+    position: relative;
+    z-index: 1;
+
+    li {
+      background: rgba(255, 255, 255, 0.85);
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      .reasonTitle {
+        text-align: center;
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: #111;
+        line-height: 1.2;
+      }
+
+      .reasonDesc {
+        font-size: 0.95rem;
+        color: #444;
+        line-height: 1.5;
+      }
+    }
+  }
+
+  /* 9) Optional button below reasons */
+  .whyUsButton {
+    margin-top: 3rem;
+    text-align: center;
+
+    .button {
+      display: inline-block;
+      background: $accent-color;
+      color: #fff;
+      font-weight: 600;
+      padding: 0.75rem 1.75rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background 0.3s ease, transform 0.3s ease;
+
+      &:hover {
+        background: darken($accent-color, 10%);
+        transform: translateY(-2px);
+      }
+    }
+  }
+}
+
+/* --------------------------------------------------
+   ABOUT SECTION: Full‐width background + left‐aligned content
+   -------------------------------------------------- */
+.about {
+  /* 1) Use `cover` so the image fills the entire section
+        (no parts of the section show empty/white) */
+  background: url('../assets/aboutBg.jpg') no-repeat center center;
+  background-size: cover;
+
+  /* 2) Vertical padding to give the section some height
+        (adjust top/bottom padding as needed to see more of the image) */
+  padding: 8rem 1rem;    // 8rem top/bottom, 1rem left/right
+
+  /* 3) Default text color */
+  color: #000;
+
+  /* 4) Inner wrapper to constrain width and keep text left‐aligned */
+  .aboutContent {
+    max-width: 700px;        
+    margin: 0 auto;          // center the wrapper horizontally
+    text-align: left;        // KEEP text left‐aligned
+
+    /* (Optional) if you want a slightly translucent box behind text: */
+    /* background: rgba(255,255,255,0.8);
+       border-radius: 6px;
+       padding: 2rem; */
+
+    h2 {
+      font-size: 2.5rem;     
+      margin-bottom: 2rem;   
+      color: #000;           
+      text-align: center;      // heading is left‐aligned
+    }
+
+    p {
+      background: rgba(255, 255, 255, 0.7);  // subtle panel behind each <p>
+      padding: 1.25rem;          
+      border-radius: 6px;
+      margin-bottom: 1.5rem;    
+      max-width: 100%;          
+      line-height: 1.6;         
+      font-size: 1.1rem;        
+      color: #000;              
+      text-align: left;         // keep paragraph text left‐aligned
+    }
+  }
+}
+
+
+
+
+
+

@@ -1,0 +1,27 @@
+@import '../styles/variables';
+@import '../styles/mixins';
+
+.footer {
+  @include center;
+
+  /* Keep footer in normal document flow (scrolled) */
+  position: relative;
+  width: 100%;
+  padding: 1rem 2rem;
+
+  /* Ashy, semi-transparent gray + blur for frosted effect */
+  background: rgba(80, 80, 80, 0.4);    /* dark gray at 40% opacity */
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+
+  /* Sit above page background */
+  z-index: 1;
+
+  /* White text to contrast the ashy gray */
+  color: #000000;
+
+  p {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,62 @@
+@import '../styles/variables';
+@import '../styles/mixins';
+
+.navbar {
+  @include center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 1rem 2rem;
+  background:transparent;
+  backdrop-filter: blur(12px);
+ 
+  transition: background-color 0.3s ease, padding 0.3s ease;
+  z-index: 1000;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 2.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.menu a {
+  position: relative;
+  font-family: $font-body;
+  font-weight: 500;
+  color: $primary-color;
+  text-decoration: none;
+  padding: 0.5rem 0;
+  transition: color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0%;
+    height: 2px;
+    background: $accent-color;
+    transition: width 0.3s ease;
+  }
+
+  &:hover {
+    color: $accent-color;
+    transform: translateY(-2px);
+
+    &::after {
+      width: 100%;
+    }
+  }
+}
+
+.menu .active {
+  color: $accent-color;
+
+  &::after {
+    width: 100%;
+  }
+}

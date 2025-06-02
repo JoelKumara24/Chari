@@ -1,0 +1,75 @@
+@import '../styles/variables';
+@import '../styles/mixins';
+
+.faq {
+  /* remove the old max-width & centering—so this block can fill 100% */
+  /* (we’ll re‐apply max‐width to its children) */
+  /* max-width: 800px; */   
+  /* margin: 0 auto; */    
+  
+  /* ensure heading clears the fixed navbar */
+  padding: 6rem 2rem 2rem;
+  color: $primary-color;
+
+  /* full‐width background image + overlay */
+  position: relative;
+  background: url('../assets/FaqBg.jpg') no-repeat center center fixed;
+  background-size: cover;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 0;
+  }
+
+  /* keep any direct child (h2 or .item) above the overlay */
+  & > * {
+    position: relative;
+    z-index: 1;
+
+    /* constrain each child to 800px and center it */
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Style the main FAQ heading */
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    @include section-heading;
+  }
+}
+
+.item {
+  background: #fff;
+  border-radius: 6px;
+  padding: 1.25rem 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  }
+}
+
+.question {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin: 0 0 0.5rem;
+  color: $accent-color;
+}
+
+.answer {
+  margin: 0;
+  padding-left: 0.75rem;
+  color: rgba($primary-color, 0.8);
+  line-height: 1.6;
+}

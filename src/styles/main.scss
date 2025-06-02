@@ -1,0 +1,35 @@
+/* src/index.scss */
+@import './_variables';
+@import './_mixins';
+
+/* Make the page fill the viewport */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  background: transparent;
+  color: $primary-color;
+  font-family: $font-body;
+
+  /* Prevent any horizontal scrolling */
+  overflow-x: hidden;
+
+  /* Still allow vertical scroll, but hide the bar */
+  overflow-y: scroll;
+
+  /* Firefox: completely hide the scrollbar */
+  scrollbar-width: none;
+}
+
+/* Chrome, Safari, Edge: hide the scrollbar track */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+/* Headings all use your heading font */
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-heading;
+  color: $primary-color;
+  margin-top: 0;
+}

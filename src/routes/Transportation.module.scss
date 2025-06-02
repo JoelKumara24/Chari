@@ -1,0 +1,99 @@
+@import '../styles/variables';
+@import '../styles/mixins';
+
+.page {
+  /* ensure content sits below fixed navbar */
+  padding-top: 6rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 2rem;
+
+  /* full-width background image */
+  position: relative;
+  background: url('../assets/TransportationBg.jpg') no-repeat center center fixed;
+  background-size: cover;
+
+  /* dark overlay to keep content readable */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 0;
+  }
+
+  /* make sure inner content sits above the overlay */
+  & > * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+// --------------------------------------------------
+// Base two-column section (now centered & capped)
+// --------------------------------------------------
+.section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  align-items: center;
+  gap: 2rem;
+  padding: 4rem 0;
+  position: relative;
+
+  /* constrain each section’s width and center it */
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #fff;                    // make heading text white
+    border-bottom: 3px solid #fff;  // force underline color to white
+    display: inline-block;
+    padding-bottom: 0.5rem;
+  }
+
+  p {
+    color: #fff;       // make paragraph text white
+    line-height: 1.6;
+  }
+}
+
+// --------------------------------------------------
+// Reverse order for zig-zag layout
+// --------------------------------------------------
+.reverse {
+  .text { order: 2; }
+  .media { order: 1; }
+}
+
+// --------------------------------------------------
+// Text column
+// --------------------------------------------------
+.text {
+  text-align: left;
+}
+
+// --------------------------------------------------
+// Media column (image + caption)
+// --------------------------------------------------
+.media {
+  text-align: center;
+
+  .image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .caption {
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+    color: rgba(#fff, 0.7);  // make caption text lightly white
+  }
+}

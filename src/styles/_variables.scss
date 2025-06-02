@@ -1,0 +1,13 @@
+/* src/styles/_variables.scss */
+
+/* 1️⃣ Import both fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;600;700&display=swap');
+
+/* 2️⃣ Colors */
+$primary-color:   #000000;
+$secondary-color: #FDF8F0;
+$accent-color:    #231708;  // warmer, richer accent
+
+/* 3️⃣ Font stacks */
+$font-body:    'Inter', sans-serif;    // for paragraphs, UI copy
+$font-heading: 'Poppins', sans-serif;  // for h1–h6, titles
