@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Home.module.scss';
 import logo from '../assets/ChariLogo1.png';
-import heroVideo from '../assets/06012.mp4';
+import heroVideo from '../assets/HEROVIDEO .mp4';
 
 import tour1 from '../assets/Ella.jpg';
 import tour2 from '../assets/Maskeliya.jpg';
@@ -68,11 +68,9 @@ export default function Home() {
         {/* Logo & title on top */}
         <div className={styles.heroContent}>
           <img src={logo} alt="Chari Travel Logo" className={styles.logo} />
-          <img
-    src={chariTitle}
-    alt="Travel Beyond Shores"
-    className={styles.titleSvg}
-  />
+          <h1 className={styles.heroTitle}>
+            Travel Beyond Shores
+          </h1>
         </div>
       </header>
 

@@ -71,14 +71,15 @@
   margin-bottom: 0.5rem;   // reduced bottom margin to bring title closer
 }
 
-/* New: style for the SVG title */
-.titleSvg {
-  width: 450px;            // increased from 350px to 450px for a larger title
-  max-width: 95%;
-  height: auto;
-  display: block;
-  margin: 0 auto;          // center horizontally
+.heroTitle {
+  font-family: 'Stephen Type', sans-serif;
+  font-size: 7rem;
+  color: #A8A8A8;
+  margin: 0;
+  padding: 0;
+  margin-top: 0.5rem;
 }
+
 
 /* 5) Base section styling—transparent so hero/video shows through */
 %base-section {

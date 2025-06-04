@@ -1,0 +1,64 @@
+// src/styles/fonts.scss
+
+@font-face {
+  font-family: 'Stephen Type';
+  src: url('../assets/fonts/StephenType.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+// Bellota Light – weight 300
+@font-face {
+  font-family: 'Bellota';
+  src: url('../assets/fonts/Bellota-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Bellota Light Italic – weight 300, italic
+@font-face {
+  font-family: 'Bellota';
+  src: url('../assets/fonts/Bellota-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+// Bellota Regular – weight 400
+@font-face {
+  font-family: 'Bellota';
+  src: url('../assets/fonts/Bellota-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Bellota Italic – weight 400, italic
+@font-face {
+  font-family: 'Bellota';
+  src: url('../assets/fonts/Bellota-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+// Bellota Bold – weight 700
+@font-face {
+  font-family: 'Bellota';
+  src: url('../assets/fonts/Bellota-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Bellota Bold Italic – weight 700, italic
+@font-face {
+  font-family: 'Bellota';
+  src: url('../assets/fonts/Bellota-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}

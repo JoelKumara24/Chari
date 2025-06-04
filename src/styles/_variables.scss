@@ -1,13 +1,19 @@
 /* src/styles/_variables.scss */
 
-/* 1️⃣ Import both fonts */
+/* ─────── 0) Load local Bellota faces ─────── */
+@import 'fonts'; // <-- make sure your Sass include path finds src/styles/fonts.scss
+
+/* ─────── 1) Google Fonts (Inter + Poppins) ─────── */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;600;700&display=swap');
 
-/* 2️⃣ Colors */
+/* ─────── 2) Colors ─────── */
 $primary-color:   #000000;
 $secondary-color: #FDF8F0;
-$accent-color:    #231708;  // warmer, richer accent
+$accent-color:    #231708;
 
-/* 3️⃣ Font stacks */
-$font-body:    'Inter', sans-serif;    // for paragraphs, UI copy
-$font-heading: 'Poppins', sans-serif;  // for h1–h6, titles
+/* ─────── 3) Font stacks ─────── */
+// For body text we still use Inter:
+$font-body:    'Bellota', 'Inter', sans-serif;
+
+// Swap headings to Bellota:
+$font-heading: 'Bellota', sans-serif;
