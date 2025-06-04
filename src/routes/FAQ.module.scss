@@ -73,3 +73,74 @@
   color: rgba($primary-color, 0.8);
   line-height: 1.6;
 }
+
+/*─────────────────────────────────────────────────────────────────────────────*/
+/* 2) TABLET / SMALLER SCREENS (≤ 768px)                                         */
+/*─────────────────────────────────────────────────────────────────────────────*/
+@media (max-width: 768px) {
+  .faq {
+    padding: 5rem 1.5rem 1.5rem;
+
+    & > * {
+      max-width: 100%;
+      margin-left: 0.75rem;
+      margin-right: 0.75rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  .item {
+    padding: 1rem 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .question {
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .answer {
+    padding-left: 0.5rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+}
+
+/*─────────────────────────────────────────────────────────────────────────────*/
+/* 3) MOBILE / PHONE SCREENS (≤ 480px)                                           */
+/*─────────────────────────────────────────────────────────────────────────────*/
+@media (max-width: 480px) {
+  .faq {
+    padding: 4rem 1rem 1rem;
+
+    & > * {
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+      margin-bottom: 0.75rem;
+    }
+  }
+
+  .item {
+    padding: 0.75rem 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .question {
+    font-size: 0.95rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .answer {
+    padding-left: 0.4rem;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+}

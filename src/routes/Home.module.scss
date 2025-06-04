@@ -675,6 +675,394 @@
   }
 }
 
+/*─────────────────────────────────────────────────────────────────────────────*/
+/* 2) TABLET / SMALLER SCREENS (≤ 768px)                                         */
+/*─────────────────────────────────────────────────────────────────────────────*/
+@media (max-width: 768px) {
+  /*------------------------------------*/
+  /* 2.1 HERO                               */
+  /*------------------------------------*/
+  .hero {
+    height: 60vh; /* shrink viewport height for tablets */
+  }
+  .heroVideo {
+    /* keep the video centered but crop a bit more on vertical */
+    min-height: 120%;
+    min-width: 120%;
+  }
+  .heroContent {
+    padding: 1.5rem;
+  }
+  .heroTitle {
+    font-size: 4rem; /* smaller on tablets */
+  }
+  .logo {
+    width: 150px;
+  }
+
+  /*------------------------------------*/
+  /* 2.2 WHAT WE DO                           */
+  /*------------------------------------*/
+  .whatWeDo {
+    padding: 6rem 1rem; /* less vertical padding */
+    > h2 {
+      font-size: 2.25rem;
+    }
+    > p {
+      font-size: 1rem;
+      max-width: 100%;
+      margin-bottom: 2rem;
+    }
+    .cardGrid {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      .cardImage {
+        height: 180px;
+      }
+      .cardContent {
+        padding: 1rem;
+        .cardTitle {
+          font-size: 1.25rem;
+        }
+        .cardDesc {
+          font-size: 0.9rem;
+        }
+      }
+    }
+    .cta {
+      font-size: 0.95rem;
+      padding: 0.625rem 1.5rem;
+      margin-top: 1.5rem;
+    }
+  }
+
+  /*------------------------------------*/
+  /* 2.3 PLACES (Top Destinations)             */
+  /*------------------------------------*/
+  .places {
+    flex-direction: column;       /* stack text + media */
+    min-height: auto;             /* let it shrink */
+    padding: 2rem 1rem;
+    .placesText {
+      max-width: 100%;
+      padding: 0 1rem 2rem;
+      h2 {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+    }
+    .placesMedia {
+      width: 100%;
+      margin-left: 0;
+      .slideshow {
+        max-width: 100%;
+        .slide {
+          height: 250px;
+        }
+        .navButton {
+          width: 2rem;
+          height: 2rem;
+          font-size: 1.25rem;
+        }
+      }
+      .cta {
+        font-size: 0.95rem;
+        padding: 0.625rem 1.5rem;
+      }
+    }
+  }
+
+  /*------------------------------------*/
+  /* 2.4 GETTING AROUND                          */
+  /*------------------------------------*/
+  .gettingAround {
+    min-height: auto;
+    padding: 4rem 1rem;
+    .container {
+      padding: 1.5rem 0;
+    }
+    .sectionHeader {
+      .title {
+        font-size: 2rem;
+      }
+      .subtitle {
+        font-size: 1rem;
+      }
+    }
+    .transportGrid {
+      grid-template-columns: 1fr; /* one column on tablet */
+      gap: 1.5rem;
+    }
+    .transportItem {
+      padding: 1rem;
+      .transportIcon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+      }
+      .transportTitle {
+        font-size: 1.1rem;
+      }
+      .transportDescription {
+        font-size: 0.9rem;
+      }
+    }
+    .centerButton {
+      .button {
+        font-size: 0.95rem;
+        padding: 0.625rem 1.25rem;
+      }
+    }
+  }
+
+  /*------------------------------------*/
+  /* 2.5 WHY CHOOSE US                          */
+  /*------------------------------------*/
+  .whyUs {
+    padding: 4rem 1rem;
+    min-height: auto;
+    .whyUsContent {
+      padding: 0 1rem;
+    }
+    h2 {
+      font-size: 2.25rem;
+    }
+    p {
+      font-size: 1rem;
+      max-width: 100%;
+      margin-bottom: 1.5rem;
+    }
+    ul {
+      grid-template-columns: 1fr; /* stack each <li> */
+      gap: 1rem;
+      li {
+        padding: 1rem;
+        .reasonTitle {
+          font-size: 1.1rem;
+        }
+        .reasonDesc {
+          font-size: 0.9rem;
+        }
+      }
+    }
+    .whyUsButton {
+      .button {
+        font-size: 0.95rem;
+        padding: 0.625rem 1.5rem;
+      }
+    }
+  }
+
+  /*------------------------------------*/
+  /* 2.6 ABOUT                                   */
+  /*------------------------------------*/
+  .about {
+    padding: 6rem 1rem;
+    .aboutContent {
+      padding: 0 1rem;
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      p {
+        font-size: 1rem;
+        padding: 1rem;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
+
+/*─────────────────────────────────────────────────────────────────────────────*/
+/* 3) MOBILE / PHONE SCREENS (≤ 480px)                                          */
+/*─────────────────────────────────────────────────────────────────────────────*/
+@media (max-width: 480px) {
+  /*------------------------------------*/
+  /* 3.1 HERO                               */
+  /*------------------------------------*/
+  .hero {
+    height: 50vh;
+  }
+  .heroVideo {
+    min-width: 150%;
+    min-height: 150%;
+  }
+  .heroContent {
+    padding: 1rem;
+  }
+  .heroTitle {
+    font-size: 3rem;
+  }
+  .logo {
+    width: 120px;
+  }
+
+  /*------------------------------------*/
+  /* 3.2 WHAT WE DO                           */
+  /*------------------------------------*/
+  .whatWeDo {
+    padding: 4rem 1rem;
+    > h2 {
+      font-size: 2rem;
+    }
+    > p {
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+    .cardGrid {
+      grid-template-columns: 1fr; /* one column stack */
+      gap: 1rem;
+    }
+    .card {
+      .cardImage {
+        height: 150px;
+      }
+      .cardContent {
+        padding: 0.75rem;
+        .cardTitle {
+          font-size: 1.2rem;
+        }
+        .cardDesc {
+          font-size: 0.85rem;
+        }
+        .cardFooter {
+          font-size: 0.85rem;
+        }
+      }
+    }
+    .cta {
+      font-size: 0.9rem;
+      padding: 0.5rem 1.25rem;
+      margin-top: 1rem;
+    }
+  }
+
+  /*------------------------------------*/
+  /* 3.3 PLACES (Top Destinations)             */
+  /*------------------------------------*/
+  .places {
+    padding: 1.5rem 0.5rem;
+    .placesText {
+      padding: 0 0.5rem 1.5rem;
+      h2 {
+        font-size: 1.75rem;
+      }
+      p {
+        font-size: 0.9rem;
+      }
+    }
+    .placesMedia {
+      .slideshow {
+        .slide {
+          height: 200px;
+        }
+        .navButton {
+          width: 1.75rem;
+          height: 1.75rem;
+          font-size: 1rem;
+        }
+      }
+      .cta {
+        font-size: 0.9rem;
+        padding: 0.5rem 1.25rem;
+      }
+    }
+  }
+
+  /*------------------------------------*/
+  /* 3.4 GETTING AROUND                          */
+  /*------------------------------------*/
+  .gettingAround {
+    padding: 2rem 0.5rem;
+    .container {
+      padding: 1rem 0;
+    }
+    .sectionHeader {
+      .title {
+        font-size: 1.75rem;
+      }
+      .subtitle {
+        font-size: 0.9rem;
+      }
+    }
+    .transportGrid {
+      gap: 1rem;
+    }
+    .transportItem {
+      padding: 0.75rem;
+      .transportIcon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.25rem;
+      }
+      .transportTitle {
+        font-size: 1rem;
+      }
+      .transportDescription {
+        font-size: 0.85rem;
+      }
+    }
+    .centerButton {
+      .button {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+      }
+    }
+  }
+
+  /*------------------------------------*/
+  /* 3.5 WHY CHOOSE US                          */
+  /*------------------------------------*/
+  .whyUs {
+    padding: 3rem 0.5rem;
+    h2 {
+      font-size: 2rem;
+    }
+    p {
+      font-size: 0.9rem;
+      margin-bottom: 1.25rem;
+    }
+    ul {
+      gap: 0.75rem;
+      li {
+        padding: 0.75rem;
+        .reasonTitle {
+          font-size: 1rem;
+        }
+        .reasonDesc {
+          font-size: 0.85rem;
+        }
+      }
+    }
+    .whyUsButton {
+      .button {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+      }
+    }
+  }
+
+  /*------------------------------------*/
+  /* 3.6 ABOUT                                   */
+  /*------------------------------------*/
+  .about {
+    padding: 4rem 0.5rem;
+    .aboutContent {
+      h2 {
+        font-size: 1.75rem;
+        margin-bottom: 1.25rem;
+      }
+      p {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
 
 
 

@@ -97,3 +97,95 @@
     color: rgba(#fff, 0.7);  // make caption text lightly white
   }
 }
+
+/*─────────────────────────────────────────────────────────────────────────────*/
+/* 2) TABLET / SMALLER SCREENS (≤ 768px)                                        */
+/*─────────────────────────────────────────────────────────────────────────────*/
+@media (max-width: 768px) {
+  .page {
+    padding-top: 5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .section {
+    gap: 1.5rem;
+    padding: 3rem 0;
+
+    /* collapse grid into two equal rows if needed */
+    grid-template-columns: 1fr;
+    text-align: center;
+
+    h2 {
+      font-size: 1.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  /* For reverse sections, ensure stacking in logical order */
+  .reverse {
+    /* The markup order stays, but text and media will stack vertically */
+    .text { order: 1; }
+    .media { order: 2; }
+  }
+
+  .text {
+    /* center text on tablet for better legibility */
+    text-align: center;
+  }
+
+  .media {
+    .image {
+      border-radius: 6px;
+    }
+    .caption {
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+    }
+  }
+}
+
+/*─────────────────────────────────────────────────────────────────────────────*/
+/* 3) MOBILE / PHONE SCREENS (≤ 480px)                                          */
+/*─────────────────────────────────────────────────────────────────────────────*/
+@media (max-width: 480px) {
+  .page {
+    padding-top: 4rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .section {
+    gap: 1rem;
+    padding: 2rem 0;
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+    }
+  }
+
+  .text {
+    /* ensure all text is centered on phone */
+    text-align: center;
+  }
+
+  .media {
+    .image {
+      border-radius: 4px;
+    }
+    .caption {
+      font-size: 0.8rem;
+      margin-top: 0.4rem;
+    }
+  }
+}
