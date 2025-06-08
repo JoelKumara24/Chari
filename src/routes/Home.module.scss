@@ -66,10 +66,18 @@
 }
 
 .logo {
-  width: 200px;
-  max-width: 80%;
-  margin-bottom: 0.5rem;   // reduced bottom margin to bring title closer
+  width: 250px;        // make it a bit bigger
+  max-width: 90%;
+  margin-bottom: 0.5rem;
+
+  /* subtle white glow + lift off the background */
+  filter:
+    drop-shadow(0 0 6px rgba(255, 255, 255, 0.8))
+    drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))
+    brightness(1.1);
 }
+
+
 
 .heroTitle {
   font-family: 'Stephen Type', sans-serif;

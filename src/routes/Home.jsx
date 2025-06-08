@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Home.module.scss';
+import logo from '../assets/home/logo1.svg';
 
 // Replace local asset imports with your S3 URLs
 const logoUrl =
@@ -76,7 +77,7 @@ export default function Home() {
         {/* Logo & title on top */}
         <div className={styles.heroContent}>
           <img
-            src={logoUrl}
+            src={logo}
             alt="Chari Travel Logo"
             className={styles.logo}
           />
