@@ -1,25 +1,33 @@
+// src/routes/Home.jsx
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Home.module.scss';
-import logo from '../assets/ChariLogo1.png';
-import heroVideo from '../assets/HEROVIDEO .mp4';
 
-import tour1 from '../assets/Ella.jpg';
-import tour2 from '../assets/Maskeliya.jpg';
-import tour3 from '../assets/Pidurangala.jpg';
+// Replace local asset imports with your S3 URLs
+const logoUrl =
+  'https://chari-travels-media.s3.us-east-1.amazonaws.com/assets/home/ChariLogo1.png';
 
-import place1 from '../assets/Maskeliya.jpg';
-import place2 from '../assets/Pidurangala.jpg';
-import place3 from '../assets/Colombo.jpg';
+const heroVideoUrl =
+  'https://chari-travels-media.s3.us-east-1.amazonaws.com/assets/home/HeroVideo.mp4';
 
-import aboutImg from '../assets/StiltFishing.jpg';
-import chariTitle from '../assets/chariTitle.svg';   // <-- new import
+const tour1Url =
+  'https://chari-travels-media.s3.us-east-1.amazonaws.com/assets/home/Ella.jpg';
+const tour2Url =
+  'https://chari-travels-media.s3.us-east-1.amazonaws.com/assets/home/Maskeliya.jpg';
+const tour3Url =
+  'https://chari-travels-media.s3.us-east-1.amazonaws.com/assets/home/Pidurangala.jpg';
 
+const place1Url =
+  'https://chari-travels-media.s3.us-east-1.amazonaws.com/assets/home/Maskeliya.jpg';
+const place2Url =
+  'https://chari-travels-media.s3.us-east-1.amazonaws.com/assets/home/Pidurangala.jpg';
+const place3Url =
+  'https://chari-travels-media.s3.us-east-1.amazonaws.com/assets/home/Colombo.jpg';
 
 const tours = [
   {
     id: 1,
-    img: tour1,
+    img: tour1Url,
     title: 'Ella Nine Arches',
     desc: 'Iconic railway bridge through tea plantations',
     duration: 'Full Day',
@@ -27,7 +35,7 @@ const tours = [
   },
   {
     id: 2,
-    img: tour2,
+    img: tour2Url,
     title: 'Maskeliya',
     desc: 'Ancient palace atop a massive Forest',
     duration: 'Full Day',
@@ -35,7 +43,7 @@ const tours = [
   },
   {
     id: 3,
-    img: tour3,
+    img: tour3Url,
     title: 'Pidurangala',
     desc: 'Colonial heritage site by the sea',
     duration: 'Half Day',
@@ -44,7 +52,7 @@ const tours = [
 ];
 
 export default function Home() {
-  const placeImages = [place1, place2, place3];
+  const placeImages = [place1Url, place2Url, place3Url];
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextSlide = () =>
@@ -58,7 +66,7 @@ export default function Home() {
         {/* Background video */}
         <video
           className={styles.heroVideo}
-          src={heroVideo}
+          src={heroVideoUrl}
           autoPlay
           muted
           loop
@@ -67,47 +75,45 @@ export default function Home() {
 
         {/* Logo & title on top */}
         <div className={styles.heroContent}>
-          <img src={logo} alt="Chari Travel Logo" className={styles.logo} />
-          <h1 className={styles.heroTitle}>
-            Travel Beyond Shores
-          </h1>
+          <img
+            src={logoUrl}
+            alt="Chari Travel Logo"
+            className={styles.logo}
+          />
+          <h1 className={styles.heroTitle}>Travel Beyond Shores</h1>
         </div>
       </header>
 
       {/* About Us */}
-<section className={styles.about}>
-  <div className={styles.aboutContent}>
-     <h2>About Us</h2>
-    <p>
-      Welcome to Chari Travel, your gateway to exploring Sri Lanka like never before.
-      From pristine beaches to lush tea plantations, we curate experiences that become
-      lifelong memories.
-    </p>
-    <p>
-      Founded by a team of passionate explorers and local insiders, Chari Travel has grown
-      into one of Sri Lanka’s premier boutique agencies. We blend modern comforts with
-      authentic cultural immersion, so every trip feels unique.
-    </p>
-    <p>
-      Our dedicated support staff and handpicked partners are available 24/7 — whether it’s
-      arranging a sunrise hike up Sigiriya or a last-minute seafood feast by the ocean.
-    </p>
-  </div>
- 
-
-  
-
-  
-</section>
-
+      <section className={styles.about}>
+        <div className={styles.aboutContent}>
+          <h2>About Us</h2>
+          <p>
+            Welcome to Chari Travel, your gateway to exploring Sri Lanka like
+            never before. From pristine beaches to lush tea plantations, we
+            curate experiences that become lifelong memories.
+          </p>
+          <p>
+            Founded by a team of passionate explorers and local insiders, Chari
+            Travel has grown into one of Sri Lanka’s premier boutique agencies.
+            We blend modern comforts with authentic cultural immersion, so
+            every trip feels unique.
+          </p>
+          <p>
+            Our dedicated support staff and handpicked partners are available
+            24/7 — whether it’s arranging a sunrise hike up Sigiriya or a
+            last-minute seafood feast by the ocean.
+          </p>
+        </div>
+      </section>
 
       {/* What We Do */}
       <section className={styles.whatWeDo}>
         <h2>What We Do</h2>
         <p>
-          We’re a full-service travel agency creating bespoke Sri Lanka tours—cultural
-          adventures, wildlife safaris, beach getaways, and more—all customized to your
-          interests and pace.
+          We’re a full-service travel agency creating bespoke Sri Lanka
+          tours—cultural adventures, wildlife safaris, beach getaways, and
+          more—all customized to your interests and pace.
         </p>
         <div className={styles.cardGrid}>
           {tours.map((t) => (
@@ -130,48 +136,47 @@ export default function Home() {
       </section>
 
       {/* Top Destinations */}
-<section className={styles.places}>
-  {/* Left side: Heading + paragraph */}
-  <div className={styles.placesText}>
-    <h2>Top Sri Lankan Destinations</h2>
-    <p>
-      Discover the wonders of Sri Lanka: ancient temples, misty hill country,
-      emerald tea estates, and sun-kissed shores. Our dedicated support staff
-      and handpicked partners are available 24/7.
-    </p>
-  </div>
+      <section className={styles.places}>
+        {/* Left side: Heading + paragraph */}
+        <div className={styles.placesText}>
+          <h2>Top Sri Lankan Destinations</h2>
+          <p>
+            Discover the wonders of Sri Lanka: ancient temples, misty hill
+            country, emerald tea estates, and sun-kissed shores. Our dedicated
+            support staff and handpicked partners are available 24/7.
+          </p>
+        </div>
 
-  {/* Right side: Slideshow + CTA */}
-  <div className={styles.placesMedia}>
-    <div className={styles.slideshow}>
-      <button
-        className={`${styles.navButton} ${styles.prevButton}`}
-        onClick={prevSlide}
-        aria-label="Previous"
-      >
-        ◀
-      </button>
-      <img
-        src={placeImages[currentIndex]}
-        alt={`Destination ${currentIndex + 1}`}
-        className={styles.slide}
-      />
-      <button
-        className={`${styles.navButton} ${styles.nextButton}`}
-        onClick={nextSlide}
-        aria-label="Next"
-      >
-        ▶
-      </button>
-    </div>
-    <p className={styles.placesCTAContainer}>
-      <Link to="/sri-lanka" className={styles.cta}>
-        View Places →
-      </Link>
-    </p>
-  </div>
-</section>
-
+        {/* Right side: Slideshow + CTA */}
+        <div className={styles.placesMedia}>
+          <div className={styles.slideshow}>
+            <button
+              className={`${styles.navButton} ${styles.prevButton}`}
+              onClick={prevSlide}
+              aria-label="Previous"
+            >
+              ◀
+            </button>
+            <img
+              src={placeImages[currentIndex]}
+              alt={`Destination ${currentIndex + 1}`}
+              className={styles.slide}
+            />
+            <button
+              className={`${styles.navButton} ${styles.nextButton}`}
+              onClick={nextSlide}
+              aria-label="Next"
+            >
+              ▶
+            </button>
+          </div>
+          <p className={styles.placesCTAContainer}>
+            <Link to="/sri-lanka" className={styles.cta}>
+              View Places →
+            </Link>
+          </p>
+        </div>
+      </section>
 
       {/* Getting Around */}
       <section className={styles.gettingAround}>
@@ -179,9 +184,10 @@ export default function Home() {
           <div className={styles.sectionHeader}>
             <h2 className={styles.title}>Getting Around Sri Lanka</h2>
             <p className={styles.subtitle}>
-              Travel in comfort and style with our comprehensive transportation options.
-              From luxury private vehicles to scenic train journeys, we ensure your journey
-              is as memorable as your destinations.
+              Travel in comfort and style with our comprehensive
+              transportation options. From luxury private vehicles to scenic
+              train journeys, we ensure your journey is as memorable as your
+              destinations.
             </p>
           </div>
           <div className={styles.transportGrid}>
@@ -216,57 +222,63 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us */}
-     <section className={styles.whyUs}>
-  <h2>Why Choose Us?</h2>
-  <p>
-    At Chari Travel, we believe your trip should be as unique as you are. Here’s why
-    clients rave about us:
-  </p>
-  <ul>
-    <li>
-      <div className={styles.reasonTitle}>
-        Personalized, <br />hand-crafted itineraries
-      </div>
-      <p className={styles.reasonDesc}>
-        Our team works one-on-one with you to build a custom Sri Lanka route based on
-        your interests—from hidden tea-plantation hikes to seaside cultural tours.
-      </p>
-    </li>
-    <li>
-      <div className={styles.reasonTitle}>
-        Insider <br />local knowledge
-      </div>
-      <p className={styles.reasonDesc}>
-        We partner with local guides and families—getting you access to authentic
-        experiences like home-cooked meals in small villages or sunrise visits to
-        lesser-known temples.
-      </p>
-    </li>
-    <li>
-      <div className={styles.reasonTitle}>
-        24/7 <br />traveler support
-      </div>
-      <p className={styles.reasonDesc}>
-        Day or night, our in-country support team is standing by—so if plans change or you
-        need last-minute recommendations, help is just a phone call away.
-      </p>
-    </li>
-    <li>
-      <div className={styles.reasonTitle}>
-        Transparent, <br />competitive pricing
-      </div>
-      <p className={styles.reasonDesc}>
-        No hidden fees. You’ll receive an itemized quote up front, and we’ll always
-        explain exactly where your money goes—so you can travel stress-free.
-      </p>
-    </li>
-  </ul>
-  <p>
-    Join thousands of satisfied travelers who’ve discovered Sri Lanka’s magic with
-    Chari Travel. Let us design the journey of a lifetime!
-  </p>
-</section>
-
+      <section className={styles.whyUs}>
+        <h2>Why Choose Us?</h2>
+        <p>
+          At Chari Travel, we believe your trip should be as unique as you are.
+          Here’s why clients rave about us:
+        </p>
+        <ul>
+          <li>
+            <div className={styles.reasonTitle}>
+              Personalized, <br />
+              hand-crafted itineraries
+            </div>
+            <p className={styles.reasonDesc}>
+              Our team works one-on-one with you to build a custom Sri Lanka
+              route based on your interests—from hidden tea-plantation hikes to
+              seaside cultural tours.
+            </p>
+          </li>
+          <li>
+            <div className={styles.reasonTitle}>
+              Insider <br />
+              local knowledge
+            </div>
+            <p className={styles.reasonDesc}>
+              We partner with local guides and families—getting you access to
+              authentic experiences like home-cooked meals in small villages or
+              sunrise visits to lesser-known temples.
+            </p>
+          </li>
+          <li>
+            <div className={styles.reasonTitle}>
+              24/7 <br />
+              traveler support
+            </div>
+            <p className={styles.reasonDesc}>
+              Day or night, our in-country support team is standing by—so if
+              plans change or you need last-minute recommendations, help is
+              just a phone call away.
+            </p>
+          </li>
+          <li>
+            <div className={styles.reasonTitle}>
+              Transparent, <br />
+              competitive pricing
+            </div>
+            <p className={styles.reasonDesc}>
+              No hidden fees. You’ll receive an itemized quote up front, and
+              we’ll always explain exactly where your money goes—so you can
+              travel stress-free.
+            </p>
+          </li>
+        </ul>
+        <p>
+          Join thousands of satisfied travelers who’ve discovered Sri Lanka’s
+          magic with Chari Travel. Let us design the journey of a lifetime!
+        </p>
+      </section>
     </div>
   );
 }

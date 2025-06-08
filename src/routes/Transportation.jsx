@@ -1,11 +1,18 @@
+// src/routes/Transportation.jsx
 import React from 'react';
 import styles from './Transportation.module.scss';
 
-// Replace these with your actual image imports
-import carImg from '../assets/beach-bg.jpg';
-import trainImg from '../assets/ElephantCouple.jpg';
-import boatImg from '../assets/Maskeliya.jpg';
-import flightImg from '../assets/beach.jpg';
+// S3 URLs for all images
+const introImgUrl =
+  'https://chari-travels-media.s3.us-east-1.amazonaws.com/assets/transportation/uber.jpg';
+const carImgUrl =
+  'https://chari-travels-media.s3.us-east-1.amazonaws.com/assets/transportation/car.jpg';
+const trainImgUrl =
+  'https://chari-travels-media.s3.us-east-1.amazonaws.com/assets/transportation/train.jpg';
+const boatImgUrl =
+  'https://chari-travels-media.s3.us-east-1.amazonaws.com/assets/transportation/boat.jpg';
+const flightImgUrl =
+  'https://chari-travels-media.s3.us-east-1.amazonaws.com/assets/transportation/plane.jpg';
 
 export default function Transportation() {
   return (
@@ -29,7 +36,7 @@ export default function Transportation() {
         </div>
         <div className={styles.media}>
           <img
-            src={carImg}
+            src={introImgUrl}
             alt="Car and Driver"
             className={styles.image}
           />
@@ -41,7 +48,7 @@ export default function Transportation() {
       <section className={`${styles.section} ${styles.reverse}`}>
         <div className={styles.media}>
           <img
-            src={carImg}
+            src={carImgUrl}
             alt="Car and Driver"
             className={styles.image}
           />
@@ -70,7 +77,7 @@ export default function Transportation() {
         </div>
         <div className={styles.media}>
           <img
-            src={trainImg}
+            src={trainImgUrl}
             alt="Train Journey"
             className={styles.image}
           />
@@ -82,7 +89,7 @@ export default function Transportation() {
       <section className={`${styles.section} ${styles.reverse}`}>
         <div className={styles.media}>
           <img
-            src={boatImg}
+            src={boatImgUrl}
             alt="Boat Ride"
             className={styles.image}
           />
@@ -110,7 +117,7 @@ export default function Transportation() {
         </div>
         <div className={styles.media}>
           <img
-            src={flightImg}
+            src={flightImgUrl}
             alt="Domestic Flight"
             className={styles.image}
           />

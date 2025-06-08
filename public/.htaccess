@@ -1,0 +1,12 @@
+# Disable MultiViews so Apache won’t try to match partial filenames
+Options -MultiViews
+
+# Turn on URL rewriting
+RewriteEngine On
+
+# If the requested file or directory doesn’t actually exist...
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# …then rewrite everything to index.html
+RewriteRule ^ index.html [QSA,L]

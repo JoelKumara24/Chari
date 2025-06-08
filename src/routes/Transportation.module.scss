@@ -10,7 +10,7 @@
 
   /* full-width background image */
   position: relative;
-  background: url('../assets/TransportationBg.jpg') no-repeat center center fixed;
+  background: url('https://chari-travels-media.s3.us-east-1.amazonaws.com/assets/transportation/TransportationBg.jpg') no-repeat center center fixed;
   background-size: cover;
 
   /* dark overlay to keep content readable */
@@ -85,16 +85,19 @@
   text-align: center;
 
   .image {
+    /* Force a consistent aspect ratio (e.g., 16:10) */
     width: 100%;
-    height: auto;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: block;
   }
 
   .caption {
     margin-top: 0.75rem;
     font-size: 0.9rem;
-    color: rgba(#fff, 0.7);  // make caption text lightly white
+    color: rgba(#fff, 0.7);
   }
 }
 

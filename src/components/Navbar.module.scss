@@ -1,4 +1,3 @@
-// Navbar.module.scss
 @import '../styles/variables';
 @import '../styles/mixins';
 
@@ -33,7 +32,6 @@
   cursor: pointer;
   padding: 0;
   z-index: 1001;
-  
 
   span {
     width: 100%;
@@ -92,10 +90,12 @@
   position: relative;
   font-family: $font-body;
   font-weight: 500;
-  color: $primary-color;
+  color: #FFFFFF;
+text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+
   text-decoration: none;
   padding: 0.5rem 0;
-  transition: color 0.3s ease, transform 0.3s ease;
+  transition: color 0.3s ease;   /* smooth color transition */
   cursor: pointer;
 
   @media (max-width: 768px) {
@@ -111,37 +111,39 @@
     bottom: -4px;
     width: 0%;
     height: 2px;
-    background: $accent-color;
-    transition: width 0.3s ease;
-
+    background: $accent-color;   /* default underline color */
+    transition: width 0.3s ease, background 0.3s ease;
+    /* when we hover, both width and bg will update */
     @media (max-width: 768px) {
-      background: #fff;
+      background: #fff;           /* mobile underline default */
     }
   }
 
   &:hover {
-    color: $accent-color;
-    transform: translateY(-2px);
-
+    color: #FF7F50;              /* vibrant coral on hover */
+    transform: none;             /* remove translateY */
+    
     &::after {
       width: 100%;
+      background: #FF7F50;       /* match the same coral underline */
     }
 
     @media (max-width: 768px) {
-      color: #fff;
+      color: #FF7F50;            /* mobile hover text also coral */
     }
   }
 }
 
 .menu .active {
-  color: $accent-color;
+  color: #FF7F50;                /* persist the coral for active link */
 
   &::after {
     width: 100%;
+    background: #FF7F50;
   }
 
   @media (max-width: 768px) {
-    color:#fff;
+    color: #FF7F50;
   }
 }
 

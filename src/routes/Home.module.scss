@@ -73,13 +73,14 @@
 
 .heroTitle {
   font-family: 'Stephen Type', sans-serif;
-  font-size: 7rem;
-  color: #A8A8A8;
-  margin: 0;
+  font-size: 5rem;       // or whatever size you chose
+  color: #A8A8A8;        // ashy gray from before
+  margin: 0.5rem 0 0;
   padding: 0;
-  margin-top: 0.5rem;
-}
 
+  /* ↓ Override the default h1 “bold” */
+  font-weight: 400;      // 400 matches your Stephen Type “regular” face
+}
 
 /* 5) Base section styling—transparent so hero/video shows through */
 %base-section {
@@ -105,13 +106,10 @@
 
 /* 6) Apply to each content section */
 
-
-
-
 /* 7) “What We Do” SECTION: Full-width background + clearer text + centered heading */
 .whatWeDo {
   /* 1) Full-section background image */
-  background: url('../assets/whatWeDoBg.jpg') no-repeat center center;
+  background: url('https://chari-travels-media.s3.us-east-1.amazonaws.com/assets/home/whatWeDoBg.jpg') no-repeat center center;
   background-size: cover;
   position: relative;
 
@@ -218,7 +216,7 @@
   .cta {
     position: relative;
     z-index: 1;
-    display: inline‐block;        // inline‐block so it only wraps its content
+    display: inline-block;        // inline‐block so it only wraps its content
     margin: 2rem 0 0;             // top margin, no auto margins
     background: $accent-color;
     color: #fff;
@@ -238,12 +236,11 @@
 
   /* Ensure the parent centers inline‐block children */
   text-align: center; // add this so the inline‐block .cta is centered
-
 }
 
 .places {
   /* 1) Full‐section background image */
-  background: url('../assets/placesBg.jpg') no-repeat center center;
+  background: url('https://chari-travels-media.s3.us-east-1.amazonaws.com/assets/home/placesBg.jpg') no-repeat center center;
   background-size: cover;
   position: relative;
 
@@ -370,8 +367,6 @@
   }
 }
 
-
-
 /* 10) Getting Around with full‐section background */
 /* 10) Getting Around: Full‐width background + full‐viewport height + centered content */
 .gettingAround {
@@ -381,7 +376,7 @@
   padding: 0 1rem;         /* Horizontal padding only; vertical centering handled by flex */
 
   /* 2) Background image (edge‐to‐edge) + overlay */
-  background: url('../assets/gettingAroundBg.jpg') no-repeat center center;
+  background: url('https://chari-travels-media.s3.us-east-1.amazonaws.com/assets/home/gettingAroundBg.jpg') no-repeat center center;
   background-size: cover;
   position: relative;
 
@@ -508,12 +503,10 @@
   }
 }
 
-
-
 /* 11) Why Choose Us: Full-width background + enhanced styling */
 .whyUs {
   /* 1) Full-section background image */
-  background: url('../assets/whyUsBg.jpg') no-repeat center center;
+  background: url('https://chari-travels-media.s3.us-east-1.amazonaws.com/assets/home/whyUsBg.jpg') no-repeat center center;
   background-size: cover;
   position: relative;
 
@@ -631,46 +624,45 @@
    ABOUT SECTION: Full‐width background + left‐aligned content
    -------------------------------------------------- */
 .about {
-  /* 1) Use `cover` so the image fills the entire section
-        (no parts of the section show empty/white) */
-  background: url('../assets/aboutBg.jpg') no-repeat center center;
+  position: relative;                // ← needed for ::before to position absolutely
+  background: url('https://chari-travels-media.s3.us-east-1.amazonaws.com/assets/home/aboutBg.jpg') no-repeat center center;
   background-size: cover;
-
-  /* 2) Vertical padding to give the section some height
-        (adjust top/bottom padding as needed to see more of the image) */
-  padding: 8rem 1rem;    // 8rem top/bottom, 1rem left/right
-
-  /* 3) Default text color */
+  padding: 8rem 1rem;                // 8rem top/bottom, 1rem left/right
   color: #000;
 
-  /* 4) Inner wrapper to constrain width and keep text left‐aligned */
-  .aboutContent {
-    max-width: 700px;        
-    margin: 0 auto;          // center the wrapper horizontally
-    text-align: left;        // KEEP text left‐aligned
+  // Dark overlay behind the content
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;                        // shorthand for top:0; right:0; bottom:0; left:0;
+    background: rgba(0, 0, 0, 0.5);  // adjust the 0.5 opacity to taste
+    z-index: 0;
+  }
 
-    /* (Optional) if you want a slightly translucent box behind text: */
-    /* background: rgba(255,255,255,0.8);
-       border-radius: 6px;
-       padding: 2rem; */
+  .aboutContent {
+    position: relative;              // ← bring this above the overlay
+    z-index: 1;
+    max-width: 700px;
+    margin: 0 auto;                  // center horizontally
+    text-align: left;
 
     h2 {
-      font-size: 2.5rem;     
-      margin-bottom: 2rem;   
-      color: #000;           
-      text-align: center;      // heading is left‐aligned
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #fff;
+      text-align: center;
     }
 
     p {
-      background: rgba(255, 255, 255, 0.7);  // subtle panel behind each <p>
-      padding: 1.25rem;          
+      background: transparent;        // keep the paragraphs’ background transparent
+      padding: 1.25rem;
       border-radius: 6px;
-      margin-bottom: 1.5rem;    
-      max-width: 100%;          
-      line-height: 1.6;         
-      font-size: 1.1rem;        
-      color: #000;              
-      text-align: left;         // keep paragraph text left‐aligned
+      margin-bottom: 1.5rem;
+      max-width: 100%;
+      line-height: 1.6;
+      font-size: 1.1rem;
+      color: #fff;
+      text-align: left;
     }
   }
 }
@@ -680,7 +672,7 @@
 /*─────────────────────────────────────────────────────────────────────────────*/
 @media (max-width: 768px) {
   /*------------------------------------*/
-  /* 2.1 HERO                               */
+  /* 2.1 HERO                          */
   /*------------------------------------*/
   .hero {
     height: 60vh; /* shrink viewport height for tablets */
@@ -701,7 +693,7 @@
   }
 
   /*------------------------------------*/
-  /* 2.2 WHAT WE DO                           */
+  /* 2.2 WHAT WE DO                    */
   /*------------------------------------*/
   .whatWeDo {
     padding: 6rem 1rem; /* less vertical padding */
@@ -739,7 +731,7 @@
   }
 
   /*------------------------------------*/
-  /* 2.3 PLACES (Top Destinations)             */
+  /* 2.3 PLACES (Top Destinations)      */
   /*------------------------------------*/
   .places {
     flex-direction: column;       /* stack text + media */
@@ -777,7 +769,7 @@
   }
 
   /*------------------------------------*/
-  /* 2.4 GETTING AROUND                          */
+  /* 2.4 GETTING AROUND                 */
   /*------------------------------------*/
   .gettingAround {
     min-height: auto;
@@ -820,7 +812,7 @@
   }
 
   /*------------------------------------*/
-  /* 2.5 WHY CHOOSE US                          */
+  /* 2.5 WHY CHOOSE US                  */
   /*------------------------------------*/
   .whyUs {
     padding: 4rem 1rem;
@@ -858,7 +850,7 @@
   }
 
   /*------------------------------------*/
-  /* 2.6 ABOUT                                   */
+  /* 2.6 ABOUT                          */
   /*------------------------------------*/
   .about {
     padding: 6rem 1rem;
@@ -882,7 +874,7 @@
 /*─────────────────────────────────────────────────────────────────────────────*/
 @media (max-width: 480px) {
   /*------------------------------------*/
-  /* 3.1 HERO                               */
+  /* 3.1 HERO                          */
   /*------------------------------------*/
   .hero {
     height: 50vh;
@@ -902,7 +894,7 @@
   }
 
   /*------------------------------------*/
-  /* 3.2 WHAT WE DO                           */
+  /* 3.2 WHAT WE DO                    */
   /*------------------------------------*/
   .whatWeDo {
     padding: 4rem 1rem;
@@ -942,7 +934,7 @@
   }
 
   /*------------------------------------*/
-  /* 3.3 PLACES (Top Destinations)             */
+  /* 3.3 PLACES (Top Destinations)      */
   /*------------------------------------*/
   .places {
     padding: 1.5rem 0.5rem;
@@ -974,7 +966,7 @@
   }
 
   /*------------------------------------*/
-  /* 3.4 GETTING AROUND                          */
+  /* 3.4 GETTING AROUND                 */
   /*------------------------------------*/
   .gettingAround {
     padding: 2rem 0.5rem;
@@ -1015,7 +1007,7 @@
   }
 
   /*------------------------------------*/
-  /* 3.5 WHY CHOOSE US                          */
+  /* 3.5 WHY CHOOSE US                  */
   /*------------------------------------*/
   .whyUs {
     padding: 3rem 0.5rem;
@@ -1047,7 +1039,7 @@
   }
 
   /*------------------------------------*/
-  /* 3.6 ABOUT                                   */
+  /* 3.6 ABOUT                          */
   /*------------------------------------*/
   .about {
     padding: 4rem 0.5rem;
@@ -1063,8 +1055,3 @@
     }
   }
 }
-
-
-
-
-

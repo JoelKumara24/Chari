@@ -1,25 +1,185 @@
-@import '../styles/variables';  
+/* src/routes/TourDetail.module.scss */
+@import '../styles/variables';
+
 .detail {
+  /* Keep content padding and max-width as before */
+  position: relative;
   padding: 6rem 2rem 2rem;
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   text-align: center;
+  z-index: 1;
+
+  /* Full‐screen background via a fixed pseudo-element */
+  &::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://chari-travels-media.s3.us-east-1.amazonaws.com/assets/tourDetails/tourDetailsBg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    z-index: -1;
+  }
 }
 
 .back {
   display: inline-block;
   margin-bottom: 1.5rem;
-  color: $accent-color;
+  color: #fff;
+  background-color: $accent-color;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 600;
   text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+
+  &:hover {
+    background-color: darken($accent-color, 10%);
+    transform: translateY(-2px);
+  }
 }
 
-.image {
-  width: 100%;
+
+.tourTitle {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #fff; /* Contrast against dark background */
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.4);
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+.intro {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #fff;
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgba(0, 0, 0, 0.35);
+  padding: 1rem 1.5rem;
+  border-radius: 4px;
+}
+
+.daysContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+/* Each day's section: image left, text right by default */
+.daySection {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* Reverse flex direction for even-indexed days */
+.reverse {
+  flex-direction: row-reverse;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.dayImage {
+  flex: 1;
+  max-width: 400px;
+  max-height: 300px;
+  overflow: hidden;
   border-radius: 8px;
-  margin: 1rem 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
 }
 
-.caption {
-  font-size: 1.1rem;
-  color: rgba($primary-color, 0.8);
+.dayText {
+  flex: 1;
+  text-align: left;
+  background-color: rgba(0, 0, 0, 0.35);
+  padding: 1rem 1.5rem;
+  border-radius: 4px;
+
+  @media (max-width: 768px) {
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+}
+
+.dayTitle {
+  font-size: 1.75rem;
+  margin-bottom: 0.75rem;
+  color: #fff;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.dayDescription {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #fff;
+}
+
+/* ===== Mobile Responsive Adjustments ===== */
+@media (max-width: 600px) {
+  .detail {
+    padding: 4rem 1rem 1.5rem;
+  }
+
+  .back {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .tourTitle {
+    font-size: 2rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .intro {
+    font-size: 1rem;
+    padding: 0.8rem 1rem;
+  }
+
+  .daysContainer {
+    gap: 2.5rem;
+  }
+
+  .daySection {
+    gap: 1rem;
+  }
+
+  .dayImage {
+    max-width: 100%;
+    max-height: 200px;
+  }
+
+  .dayText {
+    padding: 0.8rem 1rem;
+  }
+
+  .dayTitle {
+    font-size: 1.5rem;
+  }
+
+  .dayDescription {
+    font-size: 1rem;
+  }
 }

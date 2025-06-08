@@ -1,13 +1,20 @@
+// src/routes/SriLanka.jsx
 import React from 'react';
 import styles from './SriLanka.module.scss';
 
-// Replace these with your real image imports
-import introImg from '../assets/beach-bg.jpg';
-import seeImg   from '../assets/beach-bg.jpg';
-import doImg    from '../assets/beach-bg.jpg';
-import stayImg  from '../assets/beach-bg.jpg';
-import eatImg   from '../assets/beach-bg.jpg';
-import moveImg  from '../assets/beach-bg.jpg';
+// S3 URLs for all images
+const introImgUrl =
+  'https://chari-travels-media.s3.us-east-1.amazonaws.com/assets/sriLanka/beach-bg.jpg';
+const seeImgUrl =
+  'https://chari-travels-media.s3.us-east-1.amazonaws.com/assets/sriLanka/see.jpg';
+const doImgUrl =
+  'https://chari-travels-media.s3.us-east-1.amazonaws.com/assets/sriLanka/do.jpg';
+const stayImgUrl =
+  'https://chari-travels-media.s3.us-east-1.amazonaws.com/assets/sriLanka/stay.jpg';
+const eatImgUrl =
+  'https://chari-travels-media.s3.us-east-1.amazonaws.com/assets/sriLanka/eat.jpg';
+const moveImgUrl =
+  'https://chari-travels-media.s3.us-east-1.amazonaws.com/assets/sriLanka/tuk.jpg';
 
 export default function SriLanka() {
   return (
@@ -24,7 +31,7 @@ export default function SriLanka() {
         </div>
         <div className={styles.media}>
           <img
-            src={introImg}
+            src={introImgUrl}
             alt="Sri Lanka Landscape"
             className={styles.image}
           />
@@ -35,7 +42,7 @@ export default function SriLanka() {
       {/* 2. Things to See (reversed) */}
       <section className={`${styles.section} ${styles.reverse}`}>
         <div className={styles.media}>
-          <img src={seeImg} alt="Ancient Temple" className={styles.image} />
+          <img src={seeImgUrl} alt="Ancient Temple" className={styles.image} />
           <p className={styles.caption}>
             Ancient temples & historic ruins
           </p>
@@ -59,7 +66,7 @@ export default function SriLanka() {
           </p>
         </div>
         <div className={styles.media}>
-          <img src={doImg} alt="Tea Plantation Trek" className={styles.image} />
+          <img src={doImgUrl} alt="Tea Plantation Trek" className={styles.image} />
           <p className={styles.caption}>Tea plantation adventures</p>
         </div>
       </section>
@@ -67,7 +74,7 @@ export default function SriLanka() {
       {/* 4. Where to Stay (reversed) */}
       <section className={`${styles.section} ${styles.reverse}`}>
         <div className={styles.media}>
-          <img src={stayImg} alt="Luxury Cottage" className={styles.image} />
+          <img src={stayImgUrl} alt="Luxury Cottage" className={styles.image} />
           <p className={styles.caption}>Boutique villas & eco-lodges</p>
         </div>
         <div className={styles.text}>
@@ -89,7 +96,7 @@ export default function SriLanka() {
           </p>
         </div>
         <div className={styles.media}>
-          <img src={eatImg} alt="Sri Lankan Cuisine" className={styles.image} />
+          <img src={eatImgUrl} alt="Sri Lankan Cuisine" className={styles.image} />
           <p className={styles.caption}>Authentic Sri Lankan flavors</p>
         </div>
       </section>
@@ -97,7 +104,7 @@ export default function SriLanka() {
       {/* 6. How to Move Around (reversed) */}
       <section className={`${styles.section} ${styles.reverse}`}>
         <div className={styles.media}>
-          <img src={moveImg} alt="Scenic Train" className={styles.image} />
+          <img src={moveImgUrl} alt="Scenic Train" className={styles.image} />
           <p className={styles.caption}>Scenic train journeys</p>
         </div>
         <div className={styles.text}>

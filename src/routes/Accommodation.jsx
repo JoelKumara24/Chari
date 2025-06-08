@@ -1,12 +1,18 @@
+// src/routes/Accommodation.jsx
 import React from 'react';
 import styles from './Accommodation.module.scss';
 
-// Replace these with your actual image imports
-import introImg from '../assets/beach.jpg';
-import hotelsImg from '../assets/beach-bg.jpg';
-import boutiqueImg from '../assets/beach.jpg';
-import villasImg from '../assets/beach-bg.jpg';
-import homestayImg from '../assets/beach.jpg';
+// S3 URLs for all images
+const introImgUrl =
+  'https://chari-travels-media.s3.us-east-1.amazonaws.com/assets/accommodation/intro.jpg';
+const hotelsImgUrl =
+  'https://chari-travels-media.s3.us-east-1.amazonaws.com/assets/accommodation/hotel.jpg';
+const boutiqueImgUrl =
+  'https://chari-travels-media.s3.us-east-1.amazonaws.com/assets/accommodation/boutique.jpg';
+const villasImgUrl =
+  'https://chari-travels-media.s3.us-east-1.amazonaws.com/assets/accommodation/villa.jpg';
+const homestayImgUrl =
+  'https://chari-travels-media.s3.us-east-1.amazonaws.com/assets/accommodation/home.jpg';
 
 export default function Accommodation() {
   return (
@@ -23,7 +29,7 @@ export default function Accommodation() {
         </div>
         <div className={styles.media}>
           <img
-            src={introImg}
+            src={introImgUrl}
             alt="Assorted Sri Lankan Accommodations"
             className={styles.image}
           />
@@ -37,7 +43,7 @@ export default function Accommodation() {
       <section className={`${styles.section} ${styles.reverse}`}>
         <div className={styles.media}>
           <img
-            src={hotelsImg}
+            src={hotelsImgUrl}
             alt="Beachfront Hotel"
             className={styles.image}
           />
@@ -67,7 +73,7 @@ export default function Accommodation() {
         </div>
         <div className={styles.media}>
           <img
-            src={boutiqueImg}
+            src={boutiqueImgUrl}
             alt="Chic Boutique Hotel"
             className={styles.image}
           />
@@ -81,7 +87,7 @@ export default function Accommodation() {
       <section className={`${styles.section} ${styles.reverse}`}>
         <div className={styles.media}>
           <img
-            src={villasImg}
+            src={villasImgUrl}
             alt="Luxury Villa"
             className={styles.image}
           />
@@ -111,7 +117,7 @@ export default function Accommodation() {
         </div>
         <div className={styles.media}>
           <img
-            src={homestayImg}
+            src={homestayImgUrl}
             alt="Sri Lankan Homestay"
             className={styles.image}
           />
