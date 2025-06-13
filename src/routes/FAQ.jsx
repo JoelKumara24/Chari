@@ -24,18 +24,7 @@ const faqs = [
     q: 'What currencies are accepted?', 
     a: 'We accept USD, EUR, GBP, and Sri Lankan Rupees (LKR) at the time of booking.' 
   },
-  { 
-    q: 'Can I customize my itinerary?', 
-    a: 'Absolutely—just let us know your preferences and we’ll tailor a private package for you.' 
-  },
-  { 
-    q: 'Do I need vaccinations before traveling?', 
-    a: 'A yellow fever certificate is required if arriving from an infected area; other standard vaccinations are recommended.' 
-  },
-  { 
-    q: 'What is the cancellation policy?', 
-    a: 'You can cancel or modify up to 14 days before departure for a full refund, minus a small processing fee. See our full T&Cs for details.' 
-  },
+  
 ];
 
 export default function FAQ() {

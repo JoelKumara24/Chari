@@ -13,8 +13,12 @@
 
   /* full‐width background image + overlay */
   position: relative;
-  background: url('https://chari-travels-media.s3.us-east-1.amazonaws.com/assets/faq/FaqBg.jpg') no-repeat center center fixed;
+/* full‐width background image that scrolls with the page */
+  background: url('https://chari-travels-media.s3.us-east-1.amazonaws.com/assets/faq/FaqBg.jpg')
+              no-repeat center center;
   background-size: cover;
+  background-attachment: scroll;
+
 
   &::before {
     content: '';

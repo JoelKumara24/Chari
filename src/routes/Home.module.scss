@@ -22,72 +22,71 @@
   }
 }
 
-/* 2) Hero container */
+
+
 .hero {
   position: relative;
   width: 100%;
-  height: 100vh;      /* full-screen */
-  overflow: hidden;   /* crop anything overflowing */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  margin: 0;
-}
+  height: 100vh;
+  overflow: hidden;
 
-/* 3) HERO VIDEO (no black bars) */
-.heroVideo {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  .heroVideo {
+    position: absolute;
+    top: 50%; left: 50%;
+    min-width: 100%; min-height: 100%;
+    width: auto; height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: 1;
+  }
 
-  /*
-    – Ensure the video is always at least as big as the hero in both directions
-    – Overflow gets clipped by .hero’s overflow:hidden
-  */
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
+  /* 1) Dark overlay */
+  .heroOverlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 2;
+  }
 
-  transform: translate(-50%, -50%);
-  object-fit: cover;
-  object-position: center;
-  opacity: 1;    /* no transparency so content remains clear */
-  z-index: 1;    /* above .hero’s black background, below .heroContent */
-}
+   .heroLogo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 4;
 
-/* 4) Hero content (logo + headline) */
-.heroContent {
-  position: relative;
-  z-index: 3;
-  text-align: center;
-  padding: 2rem;
-}
+    img {
+      height: 200px;   // ↑ bigger logo
+      width: auto;
+      display: block;
+    }
+  }
 
-.logo {
-  width: 250px;        // make it a bit bigger
-  max-width: 90%;
-  margin-bottom: 0.5rem;
 
-  /* subtle white glow + lift off the background */
-  filter:
-    drop-shadow(0 0 6px rgba(255, 255, 255, 0.8))
-    drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))
-    brightness(1.1);
-}
+  
 
 
 
-.heroTitle {
-  font-family: 'Stephen Type', sans-serif;
-  font-size: 5rem;       // or whatever size you chose
-  color: #A8A8A8;        // ashy gray from before
-  margin: 0.5rem 0 0;
-  padding: 0;
+  /* 3) Title at bottom center */
+  .heroContent {
+    position: absolute;
+    bottom: 2rem;
+    width: 100%;
+    text-align: center;
+    z-index: 3;
+    padding-bottom: 3rem;
 
-  /* ↓ Override the default h1 “bold” */
-  font-weight: 400;      // 400 matches your Stephen Type “regular” face
+     .heroTitle {
+        font-family: 'Stephen Type', sans-serif;
+        font-size: 5rem;       // or whatever size you chose
+        color: #F5F1E9;        // ashy gray from before
+        margin: 0.5rem 0 0;
+        padding: 0;
+
+        /* ↓ Override the default h1 “bold” */
+        font-weight: 400;      // 400 matches your Stephen Type “regular” face
+      }
+  }
 }
 
 /* 5) Base section styling—transparent so hero/video shows through */
@@ -1063,3 +1062,55 @@
     }
   }
 }
+
+/* Tablet / small screens (≤ 768px) */
+@media (max-width: 768px) {
+  .hero {
+    height: 60vh;           // shrink hero height
+    overflow: hidden;
+
+    .heroVideo {
+      min-width: 120%;
+      min-height: 120%;
+    }
+
+    .heroLogo {
+      img {
+        height: 150px;      // smaller logo
+      }
+    }
+
+    .heroContent {
+      bottom: 1.5rem;       // move title a bit up
+      .heroTitle {
+        font-size: 3.5rem;  // reduce headline
+      }
+    }
+  }
+}
+
+/* Mobile / phone screens (≤ 480px) */
+@media (max-width: 480px) {
+  .hero {
+    height: 100vh;
+
+    .heroVideo {
+      min-width: 150%;
+      min-height: 150%;
+    }
+
+    .heroLogo {
+      img {
+        height: 120px;      // even smaller logo
+      }
+    }
+
+    .heroContent {
+      bottom: 1rem;
+      .heroTitle {
+        font-size: 2.5rem;
+      }
+    }
+  }
+}
+

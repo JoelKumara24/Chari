@@ -2,14 +2,16 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Home.module.scss';
+import { NavLink } from 'react-router-dom';
 import logo from '../assets/home/logo1.svg';
+import FAQ from './FAQ';
 
 // Replace local asset imports with your S3 URLs
 const logoUrl =
   'https://chari-travels-media.s3.us-east-1.amazonaws.com/assets/home/ChariLogo1.png';
 
 const heroVideoUrl =
-  'https://chari-travels-media.s3.us-east-1.amazonaws.com/assets/home/HeroVideo.mp4';
+  'https://chari-travels-media.s3.us-east-1.amazonaws.com/assets/home/charHeroVideo.mp4';
 
 const tour1Url =
   'https://chari-travels-media.s3.us-east-1.amazonaws.com/assets/home/Ella.jpg';
@@ -63,8 +65,7 @@ export default function Home() {
 
   return (
     <div className={styles.home}>
-      <header className={styles.hero}>
-        {/* Background video */}
+      <header id="hero" className={styles.hero}>
         <video
           className={styles.heroVideo}
           src={heroVideoUrl}
@@ -73,18 +74,20 @@ export default function Home() {
           loop
           playsInline
         />
+        <div className={styles.heroOverlay} />
 
-        {/* Logo & title on top */}
+        {/* Centered logo, no nav */}
+        <div className={styles.heroLogo}>
+          <NavLink to="/">
+            <img src={logoUrl} alt="Chari Travel" />
+          </NavLink>
+        </div>
+
+        {/* Your bottom‐center title stays */}
         <div className={styles.heroContent}>
-          <img
-            src={logo}
-            alt="Chari Travel Logo"
-            className={styles.logo}
-          />
           <h1 className={styles.heroTitle}>Travel Beyond Shores</h1>
         </div>
       </header>
-
       {/* About Us */}
       <section className={styles.about}>
         <div className={styles.aboutContent}>
@@ -280,6 +283,7 @@ export default function Home() {
           magic with Chari Travel. Let us design the journey of a lifetime!
         </p>
       </section>
+      <FAQ />
     </div>
   );
 }
